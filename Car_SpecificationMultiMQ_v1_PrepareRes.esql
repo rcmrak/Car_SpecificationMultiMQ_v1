@@ -1,0 +1,12 @@
+
+
+CREATE COMPUTE MODULE Car_SpecificationMultiMQ_v1_PrepareRes
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET OutputRoot.XMLNSC.cars = Environment.cars;
+		DECLARE breakpoint INTEGER 0;
+		
+		RETURN TRUE;
+	END;
+END MODULE;

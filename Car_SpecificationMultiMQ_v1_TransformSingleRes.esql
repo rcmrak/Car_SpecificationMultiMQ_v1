@@ -1,0 +1,14 @@
+
+
+CREATE COMPUTE MODULE Car_SpecificationMultiMQ_v1_TransformSingleRes
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		SET Environment.cars.car[Environment.counter].vin = InputRoot.XMLNSC.Auto.kod;
+		SET Environment.cars.car[Environment.counter].engine = InputRoot.XMLNSC.Auto.motor;
+		SET Environment.cars.car[Environment.counter].fuel = InputRoot.XMLNSC.Auto.palivo;
+		SET Environment.cars.car[Environment.counter].transmission = InputRoot.XMLNSC.Auto.prevodovka;
+		
+		RETURN TRUE;
+	END;
+END MODULE;

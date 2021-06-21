@@ -1,0 +1,25 @@
+
+
+
+
+CREATE COMPUTE MODULE Car_SpecificationMultiMQ_v1_PrepareSingleReq
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+
+		DECLARE vinCount INTEGER;
+		SET vinCount = CARDINALITY(InputRoot.XMLNSC.data.vin[]);
+		DECLARE loopCount INTEGER 0;
+		SET Environment.counter = 1;
+
+		WHILE loopCount < vinCount DO
+
+			SET OutputLocalEnvironment.Destination.REST.Request.Parameters.kod = InputRoot.XMLNSC.data.vin[loopCount+1];
+			PROPAGATE TO TERMINAL 1;
+			SET loopCount = loopCount + 1;
+			SET Environment.counter = Environment.counter + 1;
+			
+		END WHILE;
+
+		RETURN TRUE;
+	END;
+END MODULE;
