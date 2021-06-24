@@ -3,7 +3,6 @@
 	<name>Car_SpecificationMultiMQ_v1</name>
 	<comment></comment>
 	<projects>
-		<project>CommonUtils</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
